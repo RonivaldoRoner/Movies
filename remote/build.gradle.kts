@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -14,7 +16,17 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
+        val theMovieDbAPIKey: String = gradleLocalProperties(rootDir, providers).getProperty("TheMovieDbAPIKey") ?: ""
+
+        all {
+            buildConfigField("String", "TheMovieDbAPIKey", theMovieDbAPIKey)
+        }
+
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -39,6 +51,11 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.retrofit)
+    implementation(libs.okhttp3)
+    implementation(libs.loggin)
+    implementation(libs.serialization)
+    implementation(libs.serialization.converter)
+    implementation(libs.retrofit.converter)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
