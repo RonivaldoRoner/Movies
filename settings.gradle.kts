@@ -23,3 +23,4 @@ rootProject.name = "Movies"
 include(":app")
 include(":domain")
 include(":remote")
+include(":data")
