@@ -52,7 +52,7 @@ Este projeto utiliza a **Clean Architecture** como base para sua estrutura. Isso
 ## Estrutura de Pastas
 
 *   **`app/`:** Pode depender de `domain/` e `data/`.
-*   **`data/`:** Pode depender de `remote/`, `local/` e `domain/`.
+*   **`data/`:** Pode depender de `domain/`.
 *   **`domain/`:** Não depende de nenhuma outra camada. É a camada mais interna e independente.
 *   **`remote/`:** Depende apenas de si mesma.
 *   **`local/`:** Depende apenas de si mesma.
