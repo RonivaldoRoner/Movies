@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.ronivaldoroner.movies.remote"
+    namespace = "com.ronivaldoroner.movies.local"
     compileSdk = 35
 
     defaultConfig {
@@ -33,12 +33,10 @@ android {
 }
 
 dependencies {
-
     implementation(project(":domain"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.retrofit)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
