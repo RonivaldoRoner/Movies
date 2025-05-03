@@ -16,3 +16,11 @@ local.properties
 
 !**/src/**/build
 !**/test/**/build
+
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
