@@ -23,8 +23,10 @@ class LayerCyclicityTest {
             .layer("Local").definedBy("..local..")
             .whereLayer("Presentation").mayNotBeAccessedByAnyLayer()
             .whereLayer("Data").mayOnlyBeAccessedByLayers("Presentation")
-            .whereLayer("Remote").mayOnlyBeAccessedByLayers("Data", "Presentation")
-            .whereLayer("Local").mayOnlyBeAccessedByLayers("Data", "Presentation")
+            .whereLayer("Remote").mayOnlyBeAccessedByLayers("Data")
+            .whereLayer("Local").mayOnlyBeAccessedByLayers("Data")
+            .whereLayer("Domain").mayOnlyBeAccessedByLayers("Presentation", "Data", "Remote", "Local")
+            .whereLayer("Domain").mayNotAccessAnyLayer()
             .check(importedClasses)
     }
 
