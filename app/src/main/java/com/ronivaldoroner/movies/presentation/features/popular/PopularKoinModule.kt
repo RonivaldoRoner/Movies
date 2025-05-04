@@ -20,7 +20,7 @@ val popularKoinModule = module {
     }
 
     viewModel {
-        val store = get<ScreenStore<PopularScreen>>() { parametersOf(PopularScreen()) }
+        val store = get<ScreenStore<PopularScreen>> { parametersOf(PopularScreen()) }
 
         PopularViewModel(
             popularUseCase = get(),

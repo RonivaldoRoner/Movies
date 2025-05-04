@@ -18,4 +18,8 @@ kotlin {
 dependencies{
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.serialization)
+    testImplementation(libs.mockk)
+    testImplementation(libs.junit)
+    testImplementation(libs.archunit)
+    testImplementation(libs.kotlinx.coroutines.test)
 }
