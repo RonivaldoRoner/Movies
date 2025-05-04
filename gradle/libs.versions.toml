@@ -10,15 +10,18 @@ activityCompose = "1.10.1"
 composeBom = "2025.04.01"
 jetbrainsKotlinJvm = "2.1.20"
 appcompat = "1.7.0"
-material = "1.12.0"
 archunit = "1.4.0"
 retrofit = "2.11.0"
 serialization = "2.1.20"
 serializationConverter = "1.0.0"
-kotlinx = "1.8.0"
+kotlinx = "1.10.2"
+kotlinxSerialization = "1.8.0"
 okhttp3 = "4.10.0"
 loggin = "4.10.0"
-koin-bom = "4.0.4"
+koin = "4.0.4"
+navigation = "2.8.9"
+mockk = "1.13.8"
+coreTest="2.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,18 +37,27 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-core-test ={group = "androidx.arch.core", name = "core-testing", version.ref="coreTest"}
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 archunit = { group = "com.tngtech.archunit", name = "archunit-junit4", version.ref = "archunit" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
 okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp3" }
-loggin = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggin"}
-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx" }
+loggin = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggin" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx" }
+kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx" }
 serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "serializationConverter" }
-koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+
+
 
 
 [plugins]

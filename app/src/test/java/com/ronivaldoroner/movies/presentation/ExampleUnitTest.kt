@@ -1,4 +1,4 @@
-package com.ronivaldoroner.presentation
+package com.ronivaldoroner.movies.presentation
 
 import org.junit.Test
 

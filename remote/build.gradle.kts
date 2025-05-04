@@ -21,10 +21,19 @@ android {
     }
 
     buildTypes {
-        val theMovieDbAPIKey: String = gradleLocalProperties(rootDir, providers).getProperty("TheMovieDbAPIKey") ?: ""
+        val theMovieDbAPIKey: String = (
+                gradleLocalProperties(rootDir, providers).getProperty("TheMovieDbAPIKey")
+                    ?: "Key not found"
+                ).toString()
+
+        val theMovieDbAccessKey: String = (
+                gradleLocalProperties(rootDir, providers).getProperty("TheMovieDbAccessKey")
+                    ?: "Key not found"
+                ).toString()
 
         all {
             buildConfigField("String", "TheMovieDbAPIKey", theMovieDbAPIKey)
+            buildConfigField("String", "TheMovieDbAccessKey", theMovieDbAccessKey)
         }
 
         release {
@@ -51,7 +60,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.okhttp3)
     implementation(libs.loggin)
-    implementation(libs.serialization)
+    implementation(libs.kotlinx.serialization)
     implementation(libs.serialization.converter)
     implementation(libs.retrofit.converter)
     implementation(project.dependencies.platform(libs.koin.bom))

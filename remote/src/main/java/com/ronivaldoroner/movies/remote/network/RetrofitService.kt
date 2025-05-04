@@ -13,12 +13,14 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-class RetrofitService {
+internal object RetrofitService {
     private val DEFAULT_TIMEOUT_SECONDS = 30L
 
     private val client = OkHttpClient.Builder().build()
 
     private val contentType = "application/json".toMediaType()
+
+    val networkJson = Json { ignoreUnknownKeys = true }
 
     fun <T> createWebService(service: Class<T>): T =
         makeRetrofit(baseURL(), accessTokenInterceptor()).create(service)
@@ -27,7 +29,7 @@ class RetrofitService {
         Retrofit.Builder()
             .baseUrl(url)
             .client(makeHttpClient(interceptors))
-            .addConverterFactory(Json.asConverterFactory(contentType))
+            .addConverterFactory(networkJson.asConverterFactory(contentType))
             .build()
 
     private fun makeHttpClient(interceptors: Array<out Interceptor>): OkHttpClient =
@@ -74,6 +76,7 @@ class RetrofitService {
 
         return request.newBuilder()
             .addHeader("Authorization", "Bearer ${BuildConfig.TheMovieDbAPIKey}")
+            .addHeader("api_key", BuildConfig.TheMovieDbAccessKey)
             .method(request.method, request.body)
             .build()
     }

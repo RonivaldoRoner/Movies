@@ -44,10 +44,13 @@ Este projeto utiliza a **Clean Architecture** como base para sua estrutura. Isso
 
 ## Como Executar
 
+Para esse passo será necessário cadastro na API (https://www.themoviedb.org/) onde será fornecido as chaves de acessos.
+
 1.  Clone o repositório: `git clone [https://github.com/RonivaldoRoner/Movies.git]`
 2.  Abra o projeto no Android Studio.
-3.  Sincronize o projeto com o Gradle.
-4.  Execute o aplicativo em um emulador ou dispositivo físico.
+3.  Crie as propriedades TheMovieDbAPIKey e TheMovieDbAccessKey no local.properties com as keys da API themoviedb
+4.  Sincronize o projeto com o Gradle.
+5.  Execute o aplicativo em um emulador ou dispositivo físico.
 
 ## Estrutura de Pastas
 
