@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.navigation)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+    implementation(libs.kotlinx.serialization)
     testImplementation(libs.mockk)
     testImplementation(libs.junit)
     testImplementation(libs.archunit)

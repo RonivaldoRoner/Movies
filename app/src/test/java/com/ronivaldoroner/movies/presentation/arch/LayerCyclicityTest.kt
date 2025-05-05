@@ -8,12 +8,12 @@ import org.junit.Test
 class LayerCyclicityTest {
 
     @Test
-    fun verifyCyclicity(){
+    fun verifyCyclicity() {
         slices().matching(PACKAGE).should().beFreeOfCycles()
     }
 
     @Test
-    fun verifyLayerAccess(){
+    fun verifyLayerAccess() {
         layeredArchitecture()
             .consideringAllDependencies()
             .layer("Presentation").definedBy("..presentation..")
@@ -25,14 +25,14 @@ class LayerCyclicityTest {
             .whereLayer("Data").mayOnlyBeAccessedByLayers("Presentation")
             .whereLayer("Remote").mayOnlyBeAccessedByLayers("Data")
             .whereLayer("Local").mayOnlyBeAccessedByLayers("Data")
-            .whereLayer("Domain").mayOnlyBeAccessedByLayers("Presentation", "Data", "Remote", "Local")
+            .whereLayer("Domain")
+            .mayOnlyBeAccessedByLayers("Presentation", "Data", "Remote", "Local")
             .whereLayer("Domain").mayNotAccessAnyLayer()
             .check(importedClasses)
     }
 
     companion object {
-        private const val PACKAGE = "com.ronivaldoroner.movies"
-
-        private val importedClasses = ClassFileImporter().importPackages(PACKAGE)
+        const val PACKAGE = "com.ronivaldoroner.movies"
+        val importedClasses = ClassFileImporter().importPackages(PACKAGE)
     }
 }
