@@ -59,7 +59,7 @@ class PopularUseCaseTest {
             // Given
             val currentScreen = PopularScreen(state = ScreenState.Loading)
             val expectedPopularPage = PopularPage(
-                page = 1, results = listOf(), totalPages = 1, totalResults = 1
+                page = 1, movies = listOf(), totalPages = 1, totalResults = 1
             )
             val response = Response.Success(currentScreen.copy(popularPage = expectedPopularPage))
 
@@ -98,7 +98,7 @@ class PopularUseCaseTest {
         // Given
         val currentScreen = PopularScreen(state = ScreenState.Loading)
         val expectedPopularPage =
-            PopularPage(page = 1, results = listOf(), totalPages = 1, totalResults = 1)
+            PopularPage(page = 1, movies = listOf(), totalPages = 1, totalResults = 1)
         val response = Response.Success(PopularScreen(popularPage = expectedPopularPage))
 
         coEvery { mockPopularDataProvider.getPopular(isConnected = true) } returns response

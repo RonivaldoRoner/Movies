@@ -85,7 +85,7 @@ fun NavHostSetup(navController: NavHostController, modifier: Modifier = Modifier
     }
     composable(route = MoviesRoute.Popular.name) {
         PopularScreen(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxSize()
         )
     }
 }
