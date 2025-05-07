@@ -1,5 +1,5 @@
 plugins {
-    id("com.google.devtools.ksp")
+    //alias(libs.plugins.ksp)
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
 }
@@ -41,7 +41,7 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.runtime)
-    ksp(libs.androidx.room.compiler)
+    //ksp(libs.androidx.room.compiler)
     implementation(libs.kotlinx.serialization)
     testImplementation(libs.androidx.room.test)
     testImplementation(libs.junit)
