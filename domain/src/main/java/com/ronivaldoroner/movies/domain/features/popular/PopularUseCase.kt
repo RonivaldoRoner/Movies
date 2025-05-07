@@ -8,6 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 
 class PopularUseCase(
+    private val isConnected: Boolean,
     private val popularDataProvider: PopularDataProvider
 ) : BaseUseCase<PopularScreen> {
 
@@ -24,7 +25,7 @@ class PopularUseCase(
         notification: Channel<Notification>,
         dispatcher: Dispatchers
     ): PopularScreen {
-        return when (val response = popularDataProvider.getPopular(isConnected = true)) {
+        return when (val response = popularDataProvider.getPopular(isConnected = isConnected)) {
             is Response.Success -> {
                 current.copy(
                     state = ScreenState.Success,

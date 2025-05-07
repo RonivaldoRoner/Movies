@@ -1,5 +1,6 @@
 package com.ronivaldoroner.movies.presentation.features.popular
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ronivaldoroner.movies.domain.base.usecase.ScreenStore

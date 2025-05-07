@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.coil.compose.okhttp)
     implementation(libs.coil.compose.kton2)
     implementation(libs.coil.compose.ktor3)
+    testImplementation(libs.androidx.ui.test.junit4.android)
     testImplementation(libs.mockk)
     testImplementation(libs.junit)
     testImplementation(libs.archunit)

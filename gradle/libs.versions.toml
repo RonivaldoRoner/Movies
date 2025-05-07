@@ -1,6 +1,6 @@
 [versions]
 agp = "8.7.3"
-kotlin = "2.0.0"
+kotlin = "2.0.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -16,13 +16,17 @@ serialization = "2.1.20"
 serializationConverter = "1.0.0"
 kotlinx = "1.10.2"
 kotlinxSerialization = "1.8.0"
-okhttp3 = "4.10.0"
+okhttp3 = "4.12.0"
 loggin = "4.10.0"
 koin = "4.0.4"
 navigation = "2.8.9"
 mockk = "1.13.8"
 coreTest = "2.2.0"
 coil = "3.1.0"
+room = "2.7.1"
+uiTestJunit4Android = "1.8.0"
+ksp="2.0.21-1.0.27"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,6 +46,11 @@ androidx-core-test = { group = "androidx.arch.core", name = "core-testing", vers
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+androidx-room-runtime={group = "androidx.room", name="room-runtime", version.ref = "room"}
+androidx-room-ktx={group = "androidx.room", name = "room-ktx", version.ref = "room"}
+androidx-room-compiler={group = "androidx.room", name = "room-compiler", version.ref = "room"}
+androidx-room-test={group = "androidx.room", name = "room-testing", version.ref = "room"}
+androidx-ui-test-junit4-android = { group = "androidx.compose.ui", name = "ui-test-junit4-android", version.ref = "uiTestJunit4Android" }
 archunit = { group = "com.tngtech.archunit", name = "archunit-junit4", version.ref = "archunit" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
@@ -70,6 +79,6 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization" }
-
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 

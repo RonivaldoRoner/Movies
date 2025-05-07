@@ -13,9 +13,27 @@ class PopularDataProviderImpl(
 
     override suspend fun getPopular(isConnected: Boolean): Response<PopularScreen> {
         return if (isConnected) {
-            remoteProvider.getPopular()
+            when (val remoteResponse = remoteProvider.getPopular()) {
+                is Response.Success -> {
+                    localProvider.saveCache(remoteResponse.value)
+                    remoteResponse
+                }
+
+                is Response.Failure -> {
+                    when (val localResponse = localProvider.getCache()) {
+                        is Response.Success -> {
+                            localResponse
+                        }
+
+                        is Response.Failure -> {
+                            remoteResponse
+                        }
+
+                    }
+                }
+            }
         } else {
-            localProvider.getPopular()
+            localProvider.getCache()
         }
     }
 }
