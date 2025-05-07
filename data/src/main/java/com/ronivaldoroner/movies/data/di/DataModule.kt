@@ -10,5 +10,5 @@ import org.koin.dsl.module
 val dataModules: List<Module> get() = listOf(dataModule, remoteModule, localModule)
 
 private val dataModule = module {
-    factory<PopularDataProvider> { PopularDataProviderImpl(get()) }
+    factory<PopularDataProvider> { PopularDataProviderImpl(get(), get()) }
 }

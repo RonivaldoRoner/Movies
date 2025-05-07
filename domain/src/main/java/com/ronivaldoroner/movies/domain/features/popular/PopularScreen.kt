@@ -3,14 +3,17 @@ package com.ronivaldoroner.movies.domain.features.popular
 
 import com.ronivaldoroner.movies.domain.base.state.ScreenState
 import com.ronivaldoroner.movies.domain.base.state.State
+import com.ronivaldoroner.movies.domain.features.commons.SessionId
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class PopularScreen(
     override val state: ScreenState = ScreenState.Loading,
-    val popularPage: PopularPage? = null
-) : State
+    override val userId: String = "usuario",
+    override val featureId: String = "feature",
+    val popularPage: PopularPage? = null,
+) : State, SessionId
 
 @Serializable
 data class PopularPage(
@@ -54,8 +57,8 @@ data class Movie(
     val voteAverage: Double,
     @SerialName("vote_count")
     val voteCount: Int
-){
-     fun getFullImageUrl(): String {
+) {
+    fun getFullImageUrl(): String {
         val baseUrl = "https://image.tmdb.org/t/p/w500"
 
         val imagePath = if (posterPath.isEmpty().not()) {

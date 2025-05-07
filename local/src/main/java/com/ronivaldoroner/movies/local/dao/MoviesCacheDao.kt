@@ -12,6 +12,8 @@ interface MoviesCacheDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveMoviesCache(data: CacheData)
 
-    @Query("SELECT * FROM $TABLE_NAME WHERE id = :id")
+    @Query("SELECT * FROM $TABLE_NAME WHERE $ID = :id")
     suspend fun getMoviesCache(id: String): CacheData?
 }
+
+const val ID = "id"
