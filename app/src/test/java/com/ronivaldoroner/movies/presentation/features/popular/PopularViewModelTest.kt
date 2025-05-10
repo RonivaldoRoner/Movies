@@ -88,9 +88,6 @@ class PopularViewModelTest {
             viewModel
 
             // Then
-            // In this case, we can't directly verify that the exception was handled
-            // because the handling is done internally in the ViewModel.
-            // However, we can verify that the execute function was called.
             coVerify { mockPopularScreenStore.execute(mockPopularUseCase) }
         }
 }
